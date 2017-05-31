@@ -1,5 +1,5 @@
 # What
-This is my collection of tinyfugure configurations as well as some external to tf scripts that I have tf macros execute.
+This is my collection of tinyfugue configurations as well as some external to tf scripts that I have tf macros execute.
 
 # How
 Clone this repository into ~/.tf/
