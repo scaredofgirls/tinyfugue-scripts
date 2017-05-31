@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+import urllib.request
+import sys
+
+search = sys.argv[1].replace(' ', '+')
+
+baseURL = 'http://iomdb.botchris.com/equipment_pieces.txt?search={0}'
+page = urllib.request.urlopen(baseURL.format(search))
+
+data = page.read().decode('utf-8')
+
+for line in data.split('\n'):
+    if line == "":
+        continue
+    line = line.strip()
+    print(line)
+
+page.close()

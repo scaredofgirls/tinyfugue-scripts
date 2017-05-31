@@ -1,0 +1,31 @@
+#!/usr/bin/python
+
+# TODO: Options to add/edit
+
+import ConfigParser
+import sys
+import os
+
+iFile = "%s/.tf/prots.ini" % os.environ['HOME']
+
+
+def getInfo(name):
+    print "%^GREEN%^Info for%^RESET%^:%^CYAN%^{0}%^RESET%^".format(name)
+    for opt in cParser.options(name):
+        print "%^GREEN%^{0}%^RESET%^: %^CYAN%^{1}%^RESET%^".format(
+            opt.capitalize(), cParser.get(name, opt)
+        )
+
+cParser = ConfigParser.RawConfigParser()
+cParser.read(iFile)
+
+name = sys.argv[1:][0]
+
+if not cParser.has_section(name):
+    print "No info on {0} is available.".format(name)
+    sys.exit(0)
+
+if cParser.has_option(name, "aliasfor"):
+    getInfo(cParser.get(name, "aliasfor"))
+else:
+    getInfo(name)

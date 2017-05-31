@@ -1,0 +1,5 @@
+/eval /set log_dir %{HOME}/logs/tf
+/eval /set script_dir %{HOME}/.tf/scripts
+
+/set alert_time=1.0
+/set prot_chan=itoenprot

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+TYPE="$1"
+WHO="$2"
+
+if [[ "$TYPE"x == "x" || "$WHO"x == "x" ]] 
+then
+    printf "Not enough arguments supplied"
+    exit 1
+fi    
+
+declare -A refMap
+refMap=([aci]=qares
+        [asp]=xeraq
+        [col]=kiesah
+        [ele]=berqa
+        [fir]=loghob
+        [hol]=qeted
+        [mag]=seher
+        [phy]=vehqetak
+        [poi]=velenu
+        [psi]=hsieb
+        [unh]=deteq)
+
+printf "cast xaqerb at %s with %s\n" "$WHO" "${refMap[$TYPE]}"
