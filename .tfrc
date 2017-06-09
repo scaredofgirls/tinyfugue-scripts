@@ -1,19 +1,19 @@
 /setenv LC_CTYPE=en_US
 /load .tf/personal.tf
 
-/addworld -T"lp.*" iom-abj islandsofmyth.org 3000 ~/.tf/iom.abj.tf
-/addworld -T"lp.*" iom-bard islandsofmyth.org 3000 ~/.tf/iom.bard.tf
-/addworld -T"lp.*" iom-druid islandsofmyth.org 3000 ~/.tf/iom.druid.tf
-/addworld -T"lp.*" iom-elem islandsofmyth.org 3000 ~/.tf/iom.elemental.tf
-/addworld -T"lp.*" iom-healer islandsofmyth.org 3000 ~/.tf/iom.healer.tf
-/addworld -T"lp.*" iom-lurker islandsofmyth.org 3000 ~/.tf/iom.lurker.tf
-/addworld -T"lp.*" iom-ma islandsofmyth.org 3000 ~/.tf/iom.ma.tf
-/addworld -T"lp.*" iom-necro islandsofmyth.org 3000 ~/.tf/iom.necro.tf
-/addworld -T"lp.*" iom-shifter islandsofmyth.org 3000 ~/.tf/iom.shifter.tf
-/addworld -T"lp.*" iom-unraveller islandsofmyth.org 3000 ~/.tf/iom.unraveller.tf
-/addworld -T"lp.*" iom-warrior islandsofmyth.org 3000 ~/.tf/iom.warrior.tf
-/addworld -T"lp.*" iom-woodsman islandsofmyth.org 3000 ~/.tf/iom.woodsman.tf
-/addworld -T"lp.*" iom-psy islandsofmyth.org 3000 ~/.tf/iom.psychic.tf
+/addworld -x -T"lp.*" iom-abj islandsofmyth.org 3443 ~/.tf/iom.abj.tf
+/addworld -x -T"lp.*" iom-bard islandsofmyth.org 3443 ~/.tf/iom.bard.tf
+/addworld -x -T"lp.*" iom-druid islandsofmyth.org 3443 ~/.tf/iom.druid.tf
+/addworld -x -x -T"lp.*" iom-elem islandsofmyth.org 3443 ~/.tf/iom.elemental.tf
+/addworld -x -T"lp.*" iom-healer islandsofmyth.org 3443 ~/.tf/iom.healer.tf
+/addworld -x -T"lp.*" iom-lurker islandsofmyth.org 3443 ~/.tf/iom.lurker.tf
+/addworld -x -T"lp.*" iom-ma islandsofmyth.org 3443 ~/.tf/iom.ma.tf
+/addworld -x -T"lp.*" iom-necro islandsofmyth.org 3443 ~/.tf/iom.necro.tf
+/addworld -x -T"lp.*" iom-shifter islandsofmyth.org 3443 ~/.tf/iom.shifter.tf
+/addworld -x -T"lp.*" iom-unraveller islandsofmyth.org 3443 ~/.tf/iom.unraveller.tf
+/addworld -x -T"lp.*" iom-warrior islandsofmyth.org 3443 ~/.tf/iom.warrior.tf
+/addworld -x -T"lp.*" iom-woodsman islandsofmyth.org 3443 ~/.tf/iom.woodsman.tf
+/addworld -x -T"lp.*" iom-psy islandsofmyth.org 3443 ~/.tf/iom.psychic.tf
 /addworld -T"lp.*" zombie zombiemud.org 3000 ~/.tf/zombie.tf
 /addworld -T"lp.*" iom10k islandsofmyth.org 10000 ~/.tf/iom.10k.tf
 /addworld -T"lp.*" iomwiz islandsofmyth.org 3000 ~/.tf/iom.wiz.tf
