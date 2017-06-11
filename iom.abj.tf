@@ -97,9 +97,8 @@
 
 ; Run script to add shit to queue.
 /def grank = /quote -dexec -S !%{script_dir}/grank.py "%*"
-/def grank2 = /quote -dexec -S !%{script_dir}/grank2.py "%*"
 /def sshields = /qs gphy %*%;/qs iw %*%;/qs aof %*%;/qs aof %*%;/qs aof %*%;/qs cast xaqerb at %* with vehqetak%;/cq
-/def rref = /quote -dexec -S !%{script_dir}rref %*
+/def rref = /quote -dexec -S !%{script_dir}/rref %*
 
 ;  Some defaults for vuln hotkeys
 /set vuln1 weakened body
