@@ -133,7 +133,7 @@ my_rdmp_info = /set hit_points %P1(%P2)%;/set spell_points %P3(%P4)%;/set endura
 
 ;Setup command to handle prots
 /def prots = /quote -S \\!%{prot_chan} !%{script_dir}/prots "%*"
-/def eq = converse%;/quote -dexec -S !%{script_dir}eq '%{*}'%;.
+/def eq = converse%;/quote -dexec -S !%{script_dir}/eq '%{*}'%;.
 
 ;Repair
 /def -p1 -mglob -t'Bifur gives * to you.' repair = /cq
