@@ -19,6 +19,8 @@
 /def key_f12=!cast chain elemental bolts at 3rd x
 
 ;Prots
+/def -p1 -mglob -t'You weave a pattern with the elemental energy stored in your nether body, surrounding yourself with a wall of elemental energy!' ele_wall_up = !%{prot_chan} \%^BOLD\%^CYAN\%^Elemental Wall \%^RED\%^\[\%^GREEN\%^Up\%^RED\%^\]\%^RESET\%^
+/def -p1 -mglob -t'The elemental wall surrounding you fades away.' ele_wall_down = !%{prot_chan} \%^BOLD\%^CYAN\%^Elemental Wall \%^RED\%^\[\%^BLUE\%^Down\%^RED\%^\]\%^RESET\%^
 /def -p1 -mglob -t'A blue shield surrounds you.' stsh_up = /status_edit stunshield:4:BCGreen
 /def -p1 -mglob -t'The blue shield around you slowly disappears.' stsh_down = /status_edit stunshield:4:BCRed
 /def -p1 -mglob -t'You concentrate and turn your body into a misty figure without substance!' bom_up = /status_edit ele_body:4:CGreen%;/set ele_body Mist
