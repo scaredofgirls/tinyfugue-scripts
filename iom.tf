@@ -70,6 +70,7 @@ forget_down = !say \%^BOLD\%^I remember my skill and spells!\%^RESET\%^
 
 ;Ferries
 /set do_ferries=1
+/def -p1 -mglob -t'The ferry has arrived at North island dock.' sti2nti_emb = /if ({do_ferries} == 1) !embark%;/endif
 /def -p1 -mglob -t'Southcape clipper has arrived.' southcape2goss_emb = /if ({do_ferries} == 1) !embark%;/endif
 /def -p1 -mglob -t'The ferry has arrived at Dock of the southern seas.' southcape2goss_disemb = /if ({do_ferries} == 1) !do disembark;north%;/endif
 /def -p1 -mglob -t'The Gnomish Airship descends slowly, landing here.' som2ica_emb = /if ({do_ferries} == 1) !embark%;/endif
