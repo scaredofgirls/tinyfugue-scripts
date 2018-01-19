@@ -3,3 +3,5 @@
 
 /set alert_time=1.0
 /set prot_chan=itoenprot
+
+/set zombie_name=rott

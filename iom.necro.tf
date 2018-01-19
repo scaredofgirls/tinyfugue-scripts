@@ -17,13 +17,13 @@
 /def -b'^[1' = !cast mind surge at nessy
 /def -b'^[2' = !cast mind surge at tp
 /def -b'^[3' = !cast mind surge at korfula
-/def -b'^[4' = !cast mind surge at rott
+/def -b'^[4' = !cast mind surge at %{zombie_name}
 /def -b'^[5' = !cast mind surge at wilbur
 /def -b'^h' = !cast cause light wounds with %{healtarg}
 
 ;Familiar stuffs
 /def -p1 -mglob -t"Your familiar's name is now Abomination." name_nessy = /repeat -5 1 /eval !do order abomination follow;order abomination name Nessy;order abomination tank;order abomination autoreport;order abomination wield all;order abomination setwimpy 20
-/def -p1 -mglob -t"Your familiar's name is now Zombie." name_rott = /repeat -5 1 /eval !do order zombie follow;order zombie name Rott;order zombie setwimpy 30;order zombie wear all
+/def -p1 -mglob -t"Your familiar's name is now Zombie." name_zombie = /repeat -5 1 /eval !do order zombie follow;order zombie name %{zombie_name};order zombie setwimpy 30;order zombie wear all
 /def -p1 -mglob -t"Your familiar's name is now Wraith." name_wilbur = /repeat -5 1 /eval !do order wraith name Wilbur;order wraith follow;order wraith setwimpy 30;order wraith wear all;order wraith wield all
 /def -p1 -mglob -t"Your familiar's name is now Vampire." name_korfula = /repeat -5 1 /eval !do order vampire name Korfula;order vampire follow;order vampire setwimpy 30;order vampire wear all;order vampire wield all
 /def -p1 -mglob -t"Your familiar's name is now Mummy." name_tp = /repeat -5 1 /eval !do order mummy name Tp;order mummy follow;order mummy setwimpy 30;order mummy wear all
@@ -36,13 +36,13 @@
 /def -p1 -mglob -t"Nessy is ready to perform its skill." re_bash = order nessy use bash
 /def -p1 -mglob -t"LordSoth mutters the words 'Ogmis Yugu Oy'wercs!'" re_eth_fist = order LordSoth cast ethereal fist
 /def -p1 -mglob -t"Wilbur mutters the words 'Ogmis Yugu Oy'wercs!'" re_ethfist = !order wilbur cast ethereal fist
-/def -p1 -mglob -t"Rott tries to infect *, but fails miserably!" re_ench = !order rott use encephalitis
+/def -p1 -mglob -t"Rott tries to infect *, but fails miserably!" re_ench = !order %{zombie_name} use encephalitis
 /def -p1 -mglob -t"Wilbur mutters the words 'Whooooomp SPLAT!'" re_intrude = !order wilbur cast mind intrusion
 /def -p1 -mglob -t"Tp focuses inwards to connect with his ka, but fails miserably." re_akh_ba = !order tp use akh ba attack
 /def -p1 -mglob -t"Tp focuses inwards and connects with his ka. *" re_akh_ba2 = !order tp use akh ba attack
 /def -p1 -mglob -t"Korfula is * as his skill *" re_kol = !order korfula use kiss of life
 /def -p1 -mglob -t"Wilbur mutters the words 'kbnaaaang kbNAAANG!'" re_eblast = !order wilbur cast ethereal blast
-/def -p1 -mglob -t'Rott infects * with encephalitis.' do_decay = !order rott cast touch of decay
+/def -p1 -mglob -t'Rott infects * with encephalitis.' do_decay = !order %{zombie_name} cast touch of decay
 /def -p1 -mglob -t"Wilbur mutters the words 'SPAL inf flff luff!'" do_invade = !order wilbur cast mind invasion
 
 ;Prots
