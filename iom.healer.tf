@@ -78,6 +78,9 @@ pftc_up = !%{prot_chan} \%^BOLD\%^CYAN\%^Pftc \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\
 /def -p1 -mglob -t'You shimmer as your white aura fades away.' pfe_down_me = \
 !%{prot_chan} \%^BOLD\%^CYAN\%^Pfe \%^RED\%^[\%^BLUE\%^Down\%^RED\%^]\%^RESET\%^
 
+/def -p1 -mregexp -t'^You create a mystic link with ([A-Za-z]+) and share (his|her|its) pain.$' share_suff_up = \
+    !%{prot_chan} \%^BOLD\%^CYAN\%^Share Suffering \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\%^RESET\%^] on \%^RESET\%^BOLD\%^ %P1 \%^RESET\%^
+
 /def -p1 -mglob -t'You are basked in holy light as your faith is rewarded by the gods.' cru_faith_up = \
 !%{prot_chan} \%^BOLD\%^CYAN\%^Faith of the Crusader \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\%^RESET\%^
 
