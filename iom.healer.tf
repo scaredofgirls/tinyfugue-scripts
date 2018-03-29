@@ -49,7 +49,7 @@ pftc_up = !%{prot_chan} \%^BOLD\%^CYAN\%^Pftc \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\
 
 /def -p1 -mregexp -t"([A-Za-z]+).* image becomes more firm." aof_up = \
 /if (%P1 =/ "Your") !%{prot_chan} \%^BOLD\%^CYAN\%^Armor of Faith \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\%^RESET\%^%;\
-	/else !%{prot_chan} \%^BOLD\%^CYAN\%^Armor of Faith \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\%^CYAN\%^ on\%^RESET\%^BOLD\%^ {P1} \%^RESET\%^%;\
+	/else !%{prot_chan} \%^BOLD\%^CYAN\%^Armor of Faith \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\%^CYAN\%^ on\%^RESET\%^BOLD\%^ %P1 \%^RESET\%^%;\
 /endif
 
 /def -p1 -mregexp -t"([A-Za-z]+).* image fades slightly." aof_down = \
