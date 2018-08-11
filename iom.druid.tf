@@ -69,8 +69,8 @@
 /status_rm eog
 /status_add -Ahon -s1 -x eog:3
 /set eog EoG
-/status_add -Aeog -s1 -x  -s1 -x hit_points:10:BCblue
-/status_add -Ahit_points -s1 -x spell_points:10:BCblue
-/status_add -Aspell_points -s1 -x endurance_points:10:BCblue
+/status_add -Aeog -s1 -x  -s1 -x hit_points:12:BCblue
+/status_add -Ahit_points -s1 -x spell_points:12:BCblue
+/status_add -Aspell_points -s1 -x endurance_points:12:BCblue
 /status_add -Aendurance_points -s1 -x my_hunger:2:BCcyan
 /status_add -Amy_hunger -s1 -x mon_health:3:BCred

@@ -78,11 +78,11 @@
 /set cee C
 ;RDMP Status Setup
 /status_rm hit_points
-/status_add -Acee -s1 -x hit_points:10:BCblue
+/status_add -Acee -s1 -x hit_points:12:BCblue
 /status_rm spell_points
-/status_add -Ahit_points -s1 -x spell_points:10:BCblue
+/status_add -Ahit_points -s1 -x spell_points:12:BCblue
 /status_rm endurance_points
-/status_add -Aspell_points -s1 -x endurance_points:10:BCblue
+/status_add -Aspell_points -s1 -x endurance_points:12:BCblue
 /status_rm my_hunger
 /status_add -Aendurance_points -s1 -x my_hunger:2:BCcyan
 /status_rm mon_health
