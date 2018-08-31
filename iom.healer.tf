@@ -138,6 +138,7 @@ pftc_up = !%{prot_chan} \%^BOLD\%^CYAN\%^Pftc \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\
 /def -p1 -mglob -t'You create some food.' \
 do_food = /if (bot_food=1) /let food_time=$[rand(3,12)]%;/repeat -%food_time 1 !cast create food%;/endif
 
+;Don't use this. It's against the rules. It was fun to write though.
 /def healer_idle = \
     /if (rand(1,2) > 1) \
         /let bot_spell="haim"%;\
