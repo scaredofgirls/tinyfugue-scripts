@@ -2,6 +2,8 @@
 /eval /set script_dir %{HOME}/.tf/scripts
 
 /set alert_time=1.0
-/set prot_chan=itoenprot
+/set prot_chan=my_prot_chan
 
 /set zombie_name=rott
+
+/set rdmp_number 9999
