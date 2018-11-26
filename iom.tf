@@ -9,7 +9,7 @@
 /status_rm @active
 
 ;Start logging
-/eval /log %{log_dir}/iom/$[ftime("%F")]
+/eval /log -w %{log_dir}/iom/$[ftime("%F")]
 /eval /log -i %{log_dir}/iom/$[ftime("%F")]
 
 ;Don't idle off ( Depricated by in game option to set your idle off time)
@@ -119,13 +119,13 @@ forget_down = !say \%^BOLD\%^I remember my skill and spells!\%^RESET\%^
 ;;Set/Get RDMP Info.
 ;;Run "rltime" to start up the rltime loop I use for having a semblance of timestamps in logs.
 ;;Enable logging
-/def -p1 -mglob -t'You enter Islands of Myth.' rdmp_on = !RDMP ON 9575%;!channels add %{prot_chan}%;/eval /log %{log_dir}/iom/$[ftime("%F")]%;/eval /log -i %{log_dir}/iom/$[ftime("%F")]%;!rltime
-/def -p1 -mglob -t'A dark, sucking portal appears. You fall from it!' rdmp_on_ld = !RDMP ON 9575%;!channels add %{prot_chan}%;!on %{prot_chan}%;/eval /log %{log_dir}/iom/$[ftime("%F")]%;/eval /log -i %{log_dir}/iom/$[ftime("%F")]%;!rltime
-/def -agGL -p1 -mregexp -t'RDMP 9575 HEALTH ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)' \
+/def -p1 -mglob -t'You enter Islands of Myth.' rdmp_on = !RDMP ON %{rdmp_number}%;!channels add %{prot_chan}%;/eval /log -w %{log_dir}/iom/$[ftime("%F")]%;/eval /log -i %{log_dir}/iom/$[ftime("%F")]%;!rltime
+/def -p1 -mglob -t'A dark, sucking portal appears. You fall from it!' rdmp_on_ld = !RDMP ON %{rdmp_number}%;!channels add %{prot_chan}%;!on %{prot_chan}%;/eval /log -w %{log_dir}/iom/$[ftime("%F")]%;/eval /log -i %{log_dir}/iom/$[ftime("%F")]%;!rltime
+/def -agGL -p1 -mregexp -t'RDMP %{rdmp_number} HEALTH ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)' \
 my_rdmp_info = /set hit_points %P1(%P2)%;/set spell_points %P3(%P4)%;/set endurance_points %P5(%P6)%;/set my_hunger %P7
-/def -agGL -p1 -mregexp -t'RDMP 9575 MONSTER_HEALTH ([\w|\s]+) ([0-9]+)' mon_rdmp_info = /set mon_health %P2
-/def -agGL -p1 -mglob -t'RDMP 9575 TARGET_DEATH * died.' 
-/def -agGL -p1 -mglob -t'RDMP 9575 MONSTER_DEATH * was killed by *.'
+/def -agGL -p1 -mregexp -t'RDMP %{rdmp_number} MONSTER_HEALTH ([\w|\s]+) ([0-9]+)' mon_rdmp_info = /set mon_health %P2
+/def -agGL -p1 -mglob -t'RDMP %{rdmp_number} TARGET_DEATH * died.' 
+/def -agGL -p1 -mglob -t'RDMP %{rdmp_number} MONSTER_DEATH * was killed by *.'
 
 
 ;Run rltime every 30 mins to keep a semblance of timestamps in the logs.
