@@ -110,7 +110,9 @@ forget_down = !say \%^BOLD\%^I remember my skill and spells!\%^RESET\%^
 /def -p1 -mglob -t'The ferry has arrived at Dock of Christmas Cheer.' star2cheer_disemb = /if ({do_ferries} == 1) !do disembark;south%;/endif
 /def -p1 -mglob -t'Twin Islands hunting canoe has arrived.' nti2sti_emb = /if ({do_ferries} == 1) !embark%;/endif
 /def -p1 -mglob -t'The ferry has arrived at South Island Dock.' nti2sti_disemb = /if ({do_ferries} == 1) !disembark%;/endif
-/def -p1 -mglob -t'The ferry has arrived at Workshop.' talos2somb_disemb = /if ({do_ferries} == 1) !disembark%;/endi
+/def -p1 -mglob -t'The ferry has arrived at Workshop.' talos2somb_disemb = /if ({do_ferries} == 1) !disembark%;/endif
+/def -p1 -mglob -t'Ferry of Dreams has arrived.' dreams2smallroad_embark = /if ({do_ferries} == 1) !embark%;/endif
+/def -p1 -mglob -t'The ferry has arrived at Small Road.' dreams2smallroad_disemb = /if ({do_ferries} == 1) !disembark%;/endif
 
 /def -abBCcyan -p1 -mglob -t'The ocean waters begin to spin, forming a whirlpool!'
 /def -abBCcyan -p1 -mglob -t'A whirlpool forms on the surface of the ocean.'
