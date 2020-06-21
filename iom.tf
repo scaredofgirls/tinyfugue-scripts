@@ -9,7 +9,7 @@
 /status_rm @active
 
 ;Start logging
-/eval /log -w %{log_dir}/iom/$[ftime("%F")]
+/eval /log %{log_dir}/iom/$[ftime("%F")]
 /eval /log -i %{log_dir}/iom/$[ftime("%F")]
 
 ;Don't idle off ( Depricated by in game option to set your idle off time)
@@ -110,9 +110,7 @@ forget_down = !say \%^BOLD\%^I remember my skill and spells!\%^RESET\%^
 /def -p1 -mglob -t'The ferry has arrived at Dock of Christmas Cheer.' star2cheer_disemb = /if ({do_ferries} == 1) !do disembark;south%;/endif
 /def -p1 -mglob -t'Twin Islands hunting canoe has arrived.' nti2sti_emb = /if ({do_ferries} == 1) !embark%;/endif
 /def -p1 -mglob -t'The ferry has arrived at South Island Dock.' nti2sti_disemb = /if ({do_ferries} == 1) !disembark%;/endif
-/def -p1 -mglob -t'The ferry has arrived at Workshop.' talos2somb_disemb = /if ({do_ferries} == 1) !disembark%;/endif
-/def -p1 -mglob -t'Ferry of Dreams has arrived.' dreams2smallroad_embark = /if ({do_ferries} == 1) !embark%;/endif
-/def -p1 -mglob -t'The ferry has arrived at Small Road.' dreams2smallroad_disemb = /if ({do_ferries} == 1) !disembark%;/endif
+/def -p1 -mglob -t'The ferry has arrived at Workshop.' talos2somb_disemb = /if ({do_ferries} == 1) !disembark%;/endi
 
 /def -abBCcyan -p1 -mglob -t'The ocean waters begin to spin, forming a whirlpool!'
 /def -abBCcyan -p1 -mglob -t'A whirlpool forms on the surface of the ocean.'
@@ -121,13 +119,13 @@ forget_down = !say \%^BOLD\%^I remember my skill and spells!\%^RESET\%^
 ;;Set/Get RDMP Info.
 ;;Run "rltime" to start up the rltime loop I use for having a semblance of timestamps in logs.
 ;;Enable logging
-/def -p1 -mglob -t'You enter Islands of Myth.' rdmp_on = !RDMP ON %{rdmp_number}%;!channels add %{prot_chan}%;/eval /log -w %{log_dir}/iom/$[ftime("%F")]%;/eval /log -i %{log_dir}/iom/$[ftime("%F")]%;!rltime
-/def -p1 -mglob -t'A dark, sucking portal appears. You fall from it!' rdmp_on_ld = !RDMP ON %{rdmp_number}%;!channels add %{prot_chan}%;!on %{prot_chan}%;/eval /log -w %{log_dir}/iom/$[ftime("%F")]%;/eval /log -i %{log_dir}/iom/$[ftime("%F")]%;!rltime
-/def -agGL -p1 -mregexp -t'RDMP %{rdmp_number} HEALTH ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)' \
+/def -p1 -mglob -t'You enter Islands of Myth.' rdmp_on = !RDMP ON 9575%;!channels add %{prot_chan}%;/eval /log %{log_dir}/iom/$[ftime("%F")]%;/eval /log -i %{log_dir}/iom/$[ftime("%F")]%;!rltime
+/def -p1 -mglob -t'A dark, sucking portal appears. You fall from it!' rdmp_on_ld = !RDMP ON 9575%;!channels add %{prot_chan}%;!on %{prot_chan}%;/eval /log %{log_dir}/iom/$[ftime("%F")]%;/eval /log -i %{log_dir}/iom/$[ftime("%F")]%;!rltime
+/def -agGL -p1 -mregexp -t'RDMP 9575 HEALTH ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)' \
 my_rdmp_info = /set hit_points %P1(%P2)%;/set spell_points %P3(%P4)%;/set endurance_points %P5(%P6)%;/set my_hunger %P7
-/def -agGL -p1 -mregexp -t'RDMP %{rdmp_number} MONSTER_HEALTH ([\w|\s]+) ([0-9]+)' mon_rdmp_info = /set mon_health %P2
-/def -agGL -p1 -mglob -t'RDMP %{rdmp_number} TARGET_DEATH * died.' 
-/def -agGL -p1 -mglob -t'RDMP %{rdmp_number} MONSTER_DEATH * was killed by *.'
+/def -agGL -p1 -mregexp -t'RDMP 9575 MONSTER_HEALTH ([\w|\s]+) ([0-9]+)' mon_rdmp_info = /set mon_health %P2
+/def -agGL -p1 -mglob -t'RDMP 9575 TARGET_DEATH * died.' 
+/def -agGL -p1 -mglob -t'RDMP 9575 MONSTER_DEATH * was killed by *.'
 
 
 ;Run rltime every 30 mins to keep a semblance of timestamps in the logs.
@@ -142,7 +140,8 @@ my_rdmp_info = /set hit_points %P1(%P2)%;/set spell_points %P3(%P4)%;/set endura
 /def -p1 -mglob -t'Bifur gives * to you.' repair = /cq
 
 ;Racial stuff
-/def -p1 -mglob -t'You choke on the air.' lizard_down = !%{prot_chan} You need water
+/def -p1 -mglob -t'You begin to breath normally.' lizard_up = !%{prot_chan} \%^BOLD\%^Breathing \%^RED\%^\[\%^GREEN\%^Normal\%^RED\%^\]\%^RESET\%^
+/def -p1 -mglob -t'You choke on the air.' lizard_down = !%{prot_chan} \%^BOLD\%^Breathing \%^RED\%^\[\%^BLUE\%^Laborious\%^RED\%^\]\%^RESET\%^
 
 ;Crystal dragons
 /def -p1 -mglob -t'* glances at you, and sends a stream of lava at you.' cdrag_pers = !p' Stupid dragon. Stupid lava. WOT DID I DO 2 U!!11oneone
@@ -163,6 +162,11 @@ my_rdmp_info = /set hit_points %P1(%P2)%;/set spell_points %P3(%P4)%;/set endura
 ;/def -p1 -mregexp -t'^Qwerty tells you: .*' write_tell_to = /test tfwrite(tell_log, %{P0})
 
 ;Enable Keypad movement
+/def -ib"^[Ot" = /key_nkp4
+/def -ib"^[Ou" = /key_nkp5
+/def -ib"^[Ov" = /key_nkp6
+/def -ib"^[Ow" = /key_nkp7
+
 /def key_nkp1=!southwest
 /def key_nkp2=!south
 /def key_nkp3=!southeast
