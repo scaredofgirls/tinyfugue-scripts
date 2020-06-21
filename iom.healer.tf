@@ -154,9 +154,9 @@ do_food = /if (bot_food=1) /let food_time=$[rand(3,12)]%;/repeat -%food_time 1 !
 /def -p1 -mglob -t"You mutter the words 'au lhy mano'" re_hog = hog
 
 ;Healer Keys
-/def key_f2=!cast major refresh at %tank
-/def key_f3=!cast major refresh at %ma1
-/def key_f4=!cast major refresh at %ma2
+/def key_f2=!cast refresh at %tank
+/def key_f3=!cast refresh at %ma1
+/def key_f4=!cast refresh at %ma2
 /def key_f5=!cast party heal
 /def key_f6=!cast refresh companions
 /def key_f7=!cast heal at %tank
