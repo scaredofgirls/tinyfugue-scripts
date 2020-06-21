@@ -39,6 +39,9 @@
 /def -p1 -mglob -t'You lift up your feet, shake yourself out, and regain a normal sense of your surroundings.' wr_down = /status_edit willow_roots:2:BCRed
 /def -p1 -mglob -t'You quickly and efficiently erase all tracks around you.' ht_up =  /status_edit hide_tracks:2:BCGreen
 /def -p1 -mglob -t'You are no longer hiding your tracks.' ht_down = /status_edit hide_tracks:2:BCRed
+;Weapon Summons
+/def -p1 -mglob -t'You dig a strong root and start whittling it. You then concentrate your magical powers to invest nature's powers into the enchanted staff.' label_rootstaff = !label rootstaff WyrmCrusher
+/set rs_name=WyrmCrusher
 ;Weapon Enchants
 /def -p1 -mglob -t'You ward * from raw force.' ward_force = /status_edit ward:4:BCWhite
 /def -p1 -mglob -t'You ward * named * with special powers against acidic damage.' ward_acid = /status_edit ward:4:BCBlack
@@ -101,6 +104,8 @@
 /def -aBCwhite -p1 -mglob -t'You glow as your weapon spreads a shield of energy around yourself!'
 /def -aCwhite -p1 -mglob -t'Enchanted rootstaff named "WyrmCrusher" impacts * with amazing strength *'
 /def -aCblack -p1 -mglob -t'You are refreshed both physically and mentally by the energy transferred from the powers inside *'
+/def -aCyellow -p1 -mglob -t'You are refreshed by energy transferred from the fiery power inside enchanted leafblade named *'
+/def -aCred -p1 -mglob -t'A large fiery ball erupts from * named "*" and engulfs *!'
     
 ;Woodsman Status Setup
 /status_rm wyrm_slayer
