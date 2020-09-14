@@ -67,8 +67,17 @@
 /def -p1 -mglob -t"The energy field around you fades away." efield_down = /status_edit Efield:6:BCRed
 /def -p1 -mglob -t"You close your eyes, then open filled with the spirit of the priest." swp_up = /status_edit Swp:6:BCGreen
 /def -p1 -mglob -t"You lose your contact with the dead priest." swp_down = /status_edit Swp:6:BCRed
-/def -p1 -mregexp -t"You draw runes of power on ([A-Z][a-z]+)'s body." immun_up = !%{prot_chan} \%^BOLD\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\%^CYAN\%^BOLD\%^ on\%^RESET\%^BOLD\%^ %P1 \%^RESET\%^
-/def -p1 -mregexp -t"[A-Za-z+]'s body looks weaker." immun_down = !%{prot_chan} \%^BOLD\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^BLUE\%^Down\%^RED\%^]\%^CYAN\%^BOLD\%^ on\%^RESET\%^BOLD\%^ %P1 \%^RESET\%^
+/def -p1 -mregexp -t"You draw runes of power on (your|([A-Z][a-z]+)'s) body." immun_up = \
+    /if ({P1} =~ "your") \
+        !%{prot_chan} \%^BOLD\%^CYAN\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\%^RESET\%^%;\
+    /else !%{prot_chan} \%^BOLD\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^GREEN\%^Up\%^RED\%^]\%^CYAN\%^BOLD\%^ on\%^RESET\%^BOLD\%^ %P1 \%^RESET\%^%;\
+    /endif
+/def -p1 -mregexp -t"(Your|([A-Z][a-z]+)'s) body looks weaker." immun_down = \
+    /if ({P1} =~ "Your") \
+        !%{prot_chan} \%^BOLD\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^BLUE\%^Down\%^RED\%^]\%^RESET\%^\
+    /else !%{prot_chan} \%^BOLD\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^BLUE\%^Down\%^RED\%^]\%^CYAN\%^BOLD\%^ on\%^RESET\%^BOLD\%^ %P1 \%^RESET\%^%;\
+    /endif
+
 /def -p1 -mglob -t"You close your eyes, then open filled with the spirit of the magi." swm_up = /status_edit Swm:4:BCGreen
 /def -p1 -mglob -t"You lose your contact with the dead magi." swm_down = /status_edit Swm:4:BCRed
 /def -p1 -mglob -t"You close your eyes, then open filled with the spirit of the warrior." sww_up = /status_edit Sww:3:BCGreen
@@ -110,6 +119,8 @@
 ;Mindsurge
 /def -p1 -mregexp -t"You focus inwards and suddenly a flow of energy passes from you, through your wooden staff of the necromancer into ([A-Z][a-z]+)!" surge_rep = !order %P1 report
 
+;Have the mummy carry corpses. The mummy?! Why? Because mummies are uhh ... good at ... carrying stuff
+/def -p1 -mglob -t'Using your wooden staff of the necromancer you draw a conserving rune over * corpse, preserving it for later use.' mummy_get_corpse = !order mummy get a corpse
 ;Status
 /status_add -A@world -s1 -x Efield:6
 /set Efield Efield
