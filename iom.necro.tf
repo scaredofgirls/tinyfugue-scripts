@@ -58,8 +58,11 @@
 /eval /def -p1 -mglob -t"%{wraith_name} mutters the words 'SPAL inf flff luff!'" do_invade = !order %{wraith_name} cast mind invasion
 /eval /def -p1 -mglob -t"%{wraith_name} mutters the words 'kbnaaaang kbNAAANG!'" re_eblast = !order %{wraith_name} cast ethereal blast
 /eval /def -p1 -mglob -t"%{wraith_name} mutters the words 'Whooooomp SPLAT!'" re_intrude = !order %{wraith_name} cast mind intrusion
+
 /eval /def -p1 -mglob -t"%{zombie_name} tries to infect *, but fails miserably!" re_ench = !order %{zombie_name} use encephalitis
-; /eval /def -p1 -mglob -t'%{zombie_name} infects * with encephalitis.' do_decay = !order %{zombie_name} cast touch of decay
+/eval /def -p1 -mregexp -t'^%{zombie_name} infects (.*) with (anemia|cardiomyopathy|hydrocephalus|encephalitis)\.' disease_up = !say \%%%^BOLD\%%%^CYAN\%%%^$$[toupper({P2}, 1)] \%%%^RED\%%%^\[\%%%^GREEN\%%%^Up\%%%^RED\%%%^\] \%%%^BOLD\%%%^CYAN\%%%^on\%%%^RESET\%%%^BOLD\%%%^ %%P1\%%%^RESET\%%%^
+/def -p1 -mregexp -t'^([A-Z][a-z, -]+) recovers from (anemia|cardiomyopathy|hydrocephalus|encephalitis)!' disease_down = !say \%^BOLD\%^CYAN\%^$[toupper({P2}, 1)] \%^RED\%^\[\%^BLUE\%^Down\%^RED\%^\] \%^BOLD\%^CYAN\%^on\%^RESET\%^BOLD\%^ %P1\%^RESET\%^
+;/eval /def -p1 -mglob -t'%{zombie_name} infects * with encephalitis.' do_decay = !order %{zombie_name} cast touch of decay
 ; /eval /def -p1 -mglob -t'%{zombie_name} infects * with encephalitis.' do_anemia = !order %{zombie_name} use anemia
 
 ;Prots
@@ -74,7 +77,7 @@
     /endif
 /def -p1 -mregexp -t"(Your|([A-Z][a-z]+)'s) body looks weaker." immun_down = \
     /if ({P1} =~ "Your") \
-        !%{prot_chan} \%^BOLD\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^BLUE\%^Down\%^RED\%^]\%^RESET\%^\
+        !%{prot_chan} \%^BOLD\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^BLUE\%^Down\%^RED\%^]\%^RESET\%^%;\
     /else !%{prot_chan} \%^BOLD\%^CYAN\%^Strengthen Immunity \%^RED\%^[\%^BLUE\%^Down\%^RED\%^]\%^CYAN\%^BOLD\%^ on\%^RESET\%^BOLD\%^ %P1 \%^RESET\%^%;\
     /endif
 
@@ -93,28 +96,28 @@
 !%{prot_chan} \%^BOLD\%^CYAN\%^Undying Shield \%^RED\%^\[\%^BLUE\%^Down\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%{abom_name}\%^RESET\%^
 
 ;Debuffs
-/def -p1 -mregexp -t'^([A-Z][a-z]+) becomes more susceptible to diseases.' vc_up = \
+/def -p1 -mregexp -t"^([A-Za-z' -]+) becomes more susceptible to diseases." vc_up = \
 !say \%^BOLD\%^CYAN\%^Voodoo Curse \%^RED\%^\[\%^GREEN\%^Up\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%P1\%^RESET\%^
-/def -p1 -mregexp -t'^([A-Z][a-z]+) becomes less susceptible to diseases.' vc_down = \
+/def -p1 -mregexp -t"^([A-Za-z' -]+) becomes less susceptible to diseases." vc_down = \
 !say \%^BOLD\%^CYAN\%^Voodoo Curse \%^RED\%^\[\%^BLUE\%^Down\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%P1\%^RESET\%^
-/def -p1 -mregexp -t"You grin evilly at (.*) as you summon carrion crawlers to infest his wounds!" cc_up = \
+/def -p1 -mregexp -t"You grin evilly at (.*) as you summon carrion crawlers to infest (his|her|its) wounds!" cc_up = \
 !say \%^BOLD\%^CYAN\%^Carrion Crawlers \%^RED\%^\[\%^GREEN\%^Up\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%P1\%^RESET\%^
 /def -p1 -mregexp -t"The carrion crawlers disappear from (.*)'s body." cc_down = \
 !say \%^BOLD\%^CYAN\%^Carrion Crawlers \%^RED\%^\[\%^BLUE\%^Down\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%P1\%^RESET\%^
-/def -p1 -mregexp -t"([A-Z][a-z]+)'s limbs starts to rot!" rl_up = \
+/def -p1 -mregexp -t"([A-Za-z -]+)'s limbs start to rot!" rl_up = \
 !say \%^BOLD\%^CYAN\%^Rotting Limbs \%^RED\%^\[\%^GREEN\%^Up\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%P1\%^RESET\%^
-/def -p1 -mregexp -t"([A-Z][a-z]+)'s limbs stops rotting." rl_down = \
+/def -p1 -mregexp -t"([A-Za-z -]+)'s limbs stop rotting." rl_down = \
 !say \%^BOLD\%^CYAN\%^Rotting Limbs \%^RED\%^\[\%^BLUE\%^Down\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%P1\%^RESET\%^
 
 ;Scourge buffs
 /eval /def -p1 -mglob -t"%{abom_name} becomes more resistant." parenga_up = \
-!%{prot_chan} \%^BOLD\%^CYAN\%^Parenga \%^RED\%^\[\%^GREEN\%^Up\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%{abom_name}\%^RESET\%^
+!%{prot_chan} \%%%^BOLD\%%%^CYAN\%%%^Parenga \%%%^RED\%%%^\[\%%%^GREEN\%%%^Up\%%%^RED\%%%^\]\%%%^CYAN\%%%^ on \%%%^RESET\%%%^BOLD\%%%^%{abom_name}\%%%^RESET\%%%^
 /eval /def -p1 -mglob -t"%{abom_name} becomes less resistant." parenga_down = \
-!%{prot_chan} \%^BOLD\%^CYAN\%^Parenga \%^RED\%^\[\%^BLUE\%^Down\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%{abom_name}\%^RESET\%^
+!%{prot_chan} \%%%^BOLD\%%%^CYAN\%%%^Parenga \%%%^RED\%%%^\[\%%%^BLUE\%%%^Down\%%%^RED\%%%^\]\%%%^CYAN\%%%^ on \%%%^RESET\%%%^BOLD\%%%^%{abom_name}\%%%^RESET\%%%^
 /eval /def -p1 -mglob -t"%{wraith_name} grows smarter." roro_up = \
-!%{prot_chan} \%^BOLD\%^CYAN\%^Roro \%^RED\%^\[\%^GREEN\%^Up\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%{wraith_name}\%^RESET\%^
+!%{prot_chan} \%%%^BOLD\%%%^CYAN\%%%^Roro \%%%^RED\%%%^\[\%%%^GREEN\%%%^Up\%%%^RED\%%%^\]\%%%^CYAN\%%%^ on \%%%^RESET\%%%^BOLD\%%%^%{wraith_name}\%%%^RESET\%%%^
 /eval /def -p1 -mglob -t"%{wraith_name} becomes dumber." roro_down = \
-!%{prot_chan} \%^BOLD\%^CYAN\%^Roro \%^RED\%^\[\%^BLUE\%^Down\%^RED\%^\]\%^CYAN\%^ on \%^RESET\%^BOLD\%^%{wraith_name}\%^RESET\%^
+!%{prot_chan} \%%%^BOLD\%%%^CYAN\%%%^Roro \%%%^RED\%%%^\[\%%%^BLUE\%%%^Down\%%%^RED\%%%^\]\%%%^CYAN\%%%^ on \%%%^RESET\%%%^BOLD\%%%^%{wraith_name}\%%%^RESET\%%%^
 
 ;Mindsurge
 /def -p1 -mregexp -t"You focus inwards and suddenly a flow of energy passes from you, through your wooden staff of the necromancer into ([A-Z][a-z]+)!" surge_rep = !order %P1 report
