@@ -1,6 +1,6 @@
 ;#Notes
 ;Please note that my leaf blades are redeemer and wyrmslayer, 
-;my rootstaff is wyrmcrusher, and my twigshield is wyrmsbane. 
+;my rootstaff is wyrmcrusher, and my twigshield is wyrmsbane. Silvanesti 
 ;You will have to change the driggers accordingly, and will likley want to change the 
 ;stats lines to reflect your names and not my "WS" "RD" etc.
 
@@ -22,7 +22,8 @@
 /def -p1 -mglob -t"Your familiar's name is now Eagle." name_eagle = !do order eagle follow;order eagle name Fawkes
 /def -p1 -mglob -t"Your familiar's name is now Bear." name_bear = !do order bear follow;order bear name Cuteninja
 /def -p1 -mglob -t"Your familiar's name is now Falcon." name_faclon = !do order falcon follow;order falcon name Våffla
-
+/def -p1 -mglob -t"Your familiar's name is now Wolf." name_wolves = !do order 1st wolf follow;order 1st wolf name Drool;order 2nd wolf name Fuzz
+;Your mental connection to Fawkes seems to be faltering.
 ;Set eaglesell stuffs
 /set eagle_sell=0
 
@@ -40,8 +41,16 @@
 /def -p1 -mglob -t'You quickly and efficiently erase all tracks around you.' ht_up =  /status_edit hide_tracks:2:BCGreen
 /def -p1 -mglob -t'You are no longer hiding your tracks.' ht_down = /status_edit hide_tracks:2:BCRed
 ;Weapon Summons
-/def -p1 -mglob -t'You dig a strong root and start whittling it. You then concentrate your magical powers to invest nature's powers into the enchanted staff.' label_rootstaff = !label rootstaff WyrmCrusher
+/def -p1 -mglob -t"You dig a strong root and start whittling it. You then concentrate your magical powers to invest nature's powers into the enchanted staff." label_rootstaff = !label rootstaff WyrmCrusher
 /set rs_name=WyrmCrusher
+/def -p1 -mglob -t"You grab some small twigs  and start weaving them. You then wrap your creation with foliage, and you concentrate your magical powers to enchant the twigshield." label_ts = !label twigshield WyrmsBane
+
+;TODO The names here should be variable, same with the names of the weapons themselves and the status entries
+/def -p1 -mglob -t'[ enchanted leafblade named "WyrmSlayer" ]: Dropped.' drop_lb1 = /status_edit wyrm_slayer:2:BCBlue
+/def -p1 -mglob -t'[ enchanted leafblade named "Redeemer" ]: Dropped.' drop_lb2 = /status_edit redeemer:2:BCBlue
+/def -p1 -mglob -t'[ enchanted rootstaff named "WyrmCrusher" ]: Dropped.' drop_rs = /status_edit wyrm_crusher:2:BCBlue
+/def -p1 -mglob -t'[ enchanted twigshield named "WyrmsBane" ]: Dropped.' drop_ts = /status_edit wyrm_bane:2:BCBlue
+
 ;Weapon Enchants
 /def -p1 -mglob -t'You ward * from raw force.' ward_force = /status_edit ward:4:BCWhite
 /def -p1 -mglob -t'You ward * named * with special powers against acidic damage.' ward_acid = /status_edit ward:4:BCBlack
@@ -85,10 +94,13 @@
 /def -p1 -mglob -t'You draw on the exceptional qualities of your rootstaff to launch a blinding attack *' re_drum = !use drumming limbs
 /def -p1 -mglob -t'You whirl both your leafblades with exceptional speed and launch them *' re_2whirl = !use whirling branches
 /def -p1 -mglob -t'You explode into action as your rootstaff seems to drum *' re_drum2 = !use drumming limbs
-/def -p1 -mglob -t'You scream as a lunatic as you whirl your leafblade through *' re_whirl2 = !use whirling branches
+;/def -p1 -mglob -t'You scream as a lunatic as you whirl your leafblade through *' re_whirl2 = !use whirling branches
+/def -p1 -mglob -t'You scream like a lunatic as you whirl your leafblade through *' re_whirl2 = !use whirling branches
+
 /def -p1 -mglob -t'You cross your arms, then unfold them, sending both your blades whirling and slicing through *!' re_whirl3 = !use whirling branches
 /def -p1 -mglob -t'You whirl both your leafblades and hack at *, flicking your wrists to cause greater damage.' re_whirl4 = !use whirling branches
 /def -p1 -mglob -t'You whirl out at * but fumble and miss totally.' re_whirl5 = !use whirling branches
+/def -p1 -mglob -t'Your * seem to disappear as you use it with incredible speed to slash through all your opponents!' re_af = !use avenging fury
 /def -p1 -mglob -t"You mutter the words 'breeeze ekirts'" re_sw = !cast spirit wind
 
 ;Coloring of spiritual transfer procs
@@ -98,14 +110,18 @@
 /def -aBCwhite -p1 -mglob -t'You are healed by energy transferred from enchanted * named *'
 /def -aBCwhite -p1 -mglob -t'You are healed by the energy transferred from enchanted * named *'
 /def -aBCgreen -p1 -mglob -t'You are healed and refreshed by the energy transferred *'
+/def -aBCgreen -p1 -mglob -t'You are healed and refreshed by energy transferred *'
 /def -aCyellow -p1 -mglob -t'A lightning bolt suddenly comes out from * sending a wave *'
 /def -aCyellow -p1 -mglob -t'A flash of electricity suddenly arcs from enchanted * named * to *, hitting * right into the head!'
+/def -aCyellow -p1 -mglob -t"Your nature's blade flashes as the electric power infusing it electrocutes *"
+
 /def -aBCyellow -p1 -mglob -t'* is dazed by the sudden flash and stands still for a while!'
 /def -aBCwhite -p1 -mglob -t'You glow as your weapon spreads a shield of energy around yourself!'
 /def -aCwhite -p1 -mglob -t'Enchanted rootstaff named "WyrmCrusher" impacts * with amazing strength *'
 /def -aCblack -p1 -mglob -t'You are refreshed both physically and mentally by the energy transferred from the powers inside *'
-/def -aCyellow -p1 -mglob -t'You are refreshed by energy transferred from the fiery power inside enchanted leafblade named *'
+/def -aCyellow -p1 -mglob -t'You are refreshed by energy transferred from the fiery power inside enchanted *'
 /def -aCred -p1 -mglob -t'A large fiery ball erupts from * named "*" and engulfs *!'
+/def -aCgreen -p1 -mglob -t"Your nature's blade flashes as the acid power infusing it splatters *"
     
 ;Woodsman Status Setup
 /status_rm wyrm_slayer
