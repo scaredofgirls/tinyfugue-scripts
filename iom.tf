@@ -34,7 +34,7 @@
 /elseif ({aeat} =~ "eagleeat") !do eat a corpse;order eagle get all%;\
 /endif
 
-/def -p1 -mglob -t'^Using your wooden staff of the necromancer you draw a conserving rune over * corpse, preserving it for later use.$' get_corpse = !order wilbur get a corpse%;/endif
+;/def -p1 -mglob -t'^Using your wooden staff of the necromancer you draw a conserving rune over * corpse, preserving it for later use.$' get_corpse = !order wilbur get a corpse%;/endif
 
 
 ;Highlights
@@ -70,6 +70,7 @@ forget_down = !say \%^BOLD\%^I remember my skill and spells!\%^RESET\%^
 
 ;Ferries
 /set do_ferries=1
+/def -p1 -mglob -t'Ferry of Dreams has arrived.' sopor2smallrd_emb = /if ({do_ferries} == 1) !embark%;/endif
 /def -p1 -mglob -t'The ferry has arrived at North island dock.' sti2nti_emb = /if ({do_ferries} == 1) !embark%;/endif
 /def -p1 -mglob -t'The ferry has arrived at Southcape docks.' goss2sc_disemb = /if ({do_ferries} == 1) !do disembark;south%;/endif
 /def -p1 -mglob -t'Southcape clipper has arrived.' southcape2goss_emb = /if ({do_ferries} == 1) !embark%;/endif
@@ -203,3 +204,5 @@ my_rdmp_info = /set hit_points %P1(%P2)%;/set spell_points %P3(%P4)%;/set endura
 /def -p1 -mglob -t'You snap your fingers and become enshrouded in darkness.' add_dark = /set light_value $[ {light_value} -= 1 ]%;/echo -aBCBlue Current Light: %light_value
 /def -p1 -mglob -t'The darkness around you is lessed as your spell wears off.' rm_dark = /set light_value $[ {light_value} += 1 ]%;/echo -aBCBlue Current Light: %light_value
 /def -p1 -mglob -t'The light around you is lessened as your spell wears off.' rm_light = /set light_value $[ {light_value} -=1 ]%;/echo -aBCBlue Current Light: %light_value
+
+/load .tf/iom.herbalist.tf
