@@ -160,7 +160,7 @@ do_food = /if (bot_food=1) /let food_time=$[rand(3,12)]%;/repeat -%food_time 1 !
 /def key_f5=!cast party heal
 /def key_f6=!cast refresh companions
 /def key_f7=!cast heal at %tank
-/def key_f8=!cast heal body at %tank
+/def key_f8=!cast renew at %tank
 /def key_f9=!cast avatar regeneration
 /def key_f10=!cast holy prayer
 /def key_f11=!cast martyric presence
